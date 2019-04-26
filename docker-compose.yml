@@ -4,6 +4,8 @@ services:
 
   wordpress:
     image: wordpress
+    volumes:
+      - ./wordpress/wp-content:/var/www/html/wp-content
     restart: always
     ports:
       - "8080:80"
@@ -15,6 +17,8 @@ services:
 
   db:
     image: mysql:5.7
+    volumes:
+      - ./mysql:/var/lib/mysql
     restart: always
     environment:
       MYSQL_DATABASE: exampledb
